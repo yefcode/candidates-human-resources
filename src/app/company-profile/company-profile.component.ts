@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from '../company';
 
 @Component({
   selector: 'app-company-profile',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyProfileComponent implements OnInit {
 
+  company: Company;
+
   constructor() { }
 
   ngOnInit() {
+    this.getCompany();
+  }
+
+  getCompany(): void {
+    this.company = new Company('Company name', 'company address', 'company email', 'company phone');
   }
 
 }

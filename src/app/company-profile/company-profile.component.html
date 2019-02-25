@@ -1,3 +1,39 @@
-<p>
-  company-profile works!
-</p>
+<div class="container">
+  <h1>Company Profile</h1>
+
+  <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" class="form-control" name="companyName" [(ngModel)]="company.name"
+        #companyName="ngModel" [ngClass]="{'is-invalid': companyForm.updated && companyName.invalid}" required />
+      <div *ngIf="companyForm.submitted && companyName.invalid">
+        <span *ngIf="companyName.errors.required">Company Name is required</span>
+      </div>
+
+      <label for="address">Address</label>
+      <input type="text" class="form-control" name="address" [(ngModel)]="company.address"
+        #address="ngModel" [ngClass]="{'is-invalid': companyForm.updated && address.invalid}" required />
+      <div *ngIf="companyForm.submitted && address.invalid">
+        <span *ngIf="address.errors.required">Address is required</span>
+      </div>
+
+      <label for="email">EMail</label>
+      <input type="text" class="form-control" name="email" [(ngModel)]="company.email"
+        #email="ngModel" [ngClass]="{'is-invalid': companyForm.updated && email.invalid}" required />
+      <div *ngIf="companyForm.submitted && email.invalid">
+        <span *ngIf="email.errors.required">EMail is required</span>
+      </div>
+
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" name="phone" [(ngModel)]="company.phone"
+        #phone="ngModel" [ngClass]="{'is-invalid': companyForm.updated && phone.invalid}" required />
+      <div *ngIf="companyForm.submitted && phone.invalid">
+        <span *ngIf="phone.errors.required">Phone is required</span>
+      </div>
+
+      <div class="from-group">
+        <button class="btn btn-primary" (click)="update()">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
