@@ -1,3 +1,12 @@
-<p>
-  candidates works!
-</p>
+<div class="container">
+  <h1>List of Candidates</h1>
+  <ul class="candidatesList">
+    <li *ngFor="let candidate of candidates">
+      <a routerLink="/candidateDetail/{{candidate.id.value}}">
+        <span>{{candidate.name.first}}</span>
+        <span>{{candidate.name.last}}</span>
+        <span>{{candidate.phone}}</span>
+      </a>
+    </li>
+  </ul>
+</div>

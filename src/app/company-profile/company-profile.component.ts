@@ -20,4 +20,6 @@ export class CompanyProfileComponent implements OnInit {
     this.company = new Company('Company name', 'company address', 'company email', 'company phone');
   }
 
+  onSubmit(): void {  }
+
 }
