@@ -1,3 +1,12 @@
-<p>
-  candidate-detail works!
-</p>
+<div class="container" *ngIf="candidate">
+  <h2>Detail of Candidate</h2>
+  <ul class="list-group">
+    <li class="list-group-item">{{candidate.name.first}}</li>
+    <li class="list-group-item">{{candidate.name.last}}</li>
+    <li class="list-group-item">{{candidate.phone}}</li>
+    <li class="list-group-item">{{candidate.email}}</li>
+    <li class="list-group-item">{{candidate.gender}}</li>
+    <li class="list-group-item"><img [src]="candidate.picture.large" alt=""></li>
+    <li class="list-group-item"><img [src]="candidate.picture.medium" alt=""></li>
+  </ul>
+</div>
