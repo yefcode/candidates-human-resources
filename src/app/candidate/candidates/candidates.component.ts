@@ -8,7 +8,8 @@ import { CandidateService } from '../candidate.service';
 })
 export class CandidatesComponent implements OnInit {
 
-  candidates: any;
+  public candidates: any;
+  public selectedCandidate: any;
 
   constructor(private candidateService: CandidateService) { }
 
@@ -19,6 +20,10 @@ export class CandidatesComponent implements OnInit {
   getCandidates(): void {
     this.candidateService.getCandidates()
     .subscribe(candidates => this.candidates = candidates.results);
+  }
+
+  onSelect(candidate: any): void {
+    this.selectedCandidate = candidate;
   }
 
 }
