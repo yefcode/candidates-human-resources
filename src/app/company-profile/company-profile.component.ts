@@ -25,14 +25,14 @@ export class CompanyProfileComponent implements OnInit {
   getCompany(): void {
     const storedCompany = this.companyProfileService.getCompany();
     if (storedCompany) {
-      this.formControlName.setValue(storedCompany.name);
-      this.formControlAddress.setValue(storedCompany.address);
-      this.formControlEmail.setValue(storedCompany.email);
-      this.formControlPhone.setValue(storedCompany.phone);
       this.company = new Company(storedCompany.name, storedCompany.address, storedCompany.email, storedCompany.phone);
     } else {
-      this.company = new Company('Add a company name', 'Add an address', 'Add an email', 'Add a phone');
+      this.company = new Company('Add a company name', 'Add an address', 'addEmail@example.com', 'Add a phone');
     }
+    this.formControlName.setValue(this.company.name);
+    this.formControlAddress.setValue(this.company.address);
+    this.formControlEmail.setValue(this.company.email);
+    this.formControlPhone.setValue(this.company.phone);
   }
 
   onSubmit(): void {
