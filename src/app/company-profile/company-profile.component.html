@@ -1,39 +1,72 @@
-<div class="container">
+<div class="container-mat-accordion-yef">
   <h2>Company Profile</h2>
+  <p>You can click on any row option to display an input field to update that property </p>
+  <mat-accordion class="mat-accordion-headers-align">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Company Name
+        </mat-panel-title>
+        <mat-panel-description>
+          {{company.name}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-  <form (ngSubmit)="companyForm.form.valid && onSubmit()" #companyForm="ngForm">
-    <div class="form-group">
-      <label for="companyName">Company Name</label>
-      <input type="text" class="form-control" name="companyName" [(ngModel)]="company.name"
-        #companyName="ngModel" [ngClass]="{'is-invalid': companyForm.updated && companyName.invalid}" required />
-      <div *ngIf="companyForm.submitted && companyName.invalid">
-        <span *ngIf="companyName.errors.required">Company Name is required</span>
-      </div>
+      <mat-form-field>
+        <input matInput placeholder="update the company name" [formControl]="formControlName" required>
+        <mat-error *ngIf="formControlName.invalid">{{getErrorMessageName()}}</mat-error>
+      </mat-form-field>
+    </mat-expansion-panel>
 
-      <label for="address">Address</label>
-      <input type="text" class="form-control" name="address" [(ngModel)]="company.address"
-        #address="ngModel" [ngClass]="{'is-invalid': companyForm.updated && address.invalid}" required />
-      <div *ngIf="companyForm.submitted && address.invalid">
-        <span *ngIf="address.errors.required">Address is required</span>
-      </div>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Address
+        </mat-panel-title>
+        <mat-panel-description>
+          {{company.address}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+          <input matInput placeholder="update the address" [formControl]="formControlAddress" required>
+          <mat-error *ngIf="formControlAddress.invalid">{{getErrorMessageAddress()}}</mat-error>
+        </mat-form-field>
+    </mat-expansion-panel>
 
-      <label for="email">EMail</label>
-      <input type="text" class="form-control" name="email" [(ngModel)]="company.email"
-        #email="ngModel" [ngClass]="{'is-invalid': companyForm.updated && email.invalid}" required />
-      <div *ngIf="companyForm.submitted && email.invalid">
-        <span *ngIf="email.errors.required">EMail is required</span>
-      </div>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          EMail
+        </mat-panel-title>
+        <mat-panel-description>
+          {{company.email}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+          <input matInput placeholder="update the email" [formControl]="formControlEmail" required>
+          <mat-error *ngIf="formControlEmail.invalid">{{getErrorMessageEmail()}}</mat-error>
+        </mat-form-field>
+    </mat-expansion-panel>
 
-      <label for="phone">Phone</label>
-      <input type="text" class="form-control" name="phone" [(ngModel)]="company.phone"
-        #phone="ngModel" [ngClass]="{'is-invalid': companyForm.updated && phone.invalid}" required />
-      <div *ngIf="companyForm.submitted && phone.invalid">
-        <span *ngIf="phone.errors.required">Phone is required</span>
-      </div>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Phone
+        </mat-panel-title>
+        <mat-panel-description>
+          {{company.phone}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+          <input matInput placeholder="update the phone" [formControl]="formControlPhone" required>
+          <mat-error *ngIf="formControlPhone.invalid">{{getErrorMessagePhone()}}</mat-error>
+        </mat-form-field>
+    </mat-expansion-panel>
 
-      <div class="from-group">
-        <button class="btn btn-primary">Update</button>
-      </div>
-    </div>
-  </form>
+  </mat-accordion>
+
+  <div class="update-company-button">
+    <button class="btn btn-primary" (click)="onSubmit()">Save</button>
+  </div>
+
 </div>

@@ -12,7 +12,6 @@ export class ModalService {
   add(modal: any) {
       // add modal to array of active modals
       this.modals.push(modal);
-      console.log('************************Modal Service adding modal:', modal);
   }
 
   remove(id: string) {
@@ -24,7 +23,6 @@ export class ModalService {
       // open modal specified by id
       const modalToOpen: any = this.modals.filter(modal => modal.id === id)[0];
       modalToOpen.open();
-      console.log('************************Modal Service open method with id:', id);
   }
 
   close(id: string) {
