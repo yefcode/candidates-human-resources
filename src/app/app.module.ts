@@ -9,6 +9,7 @@ import { CandidatesComponent } from './candidate/candidates/candidates.component
 import { CandidateDetailComponent } from './candidate/candidate-detail/candidate-detail.component';
 import { HomeComponent } from './home/home.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
+import { ModalComponent } from './common/components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
     CandidatesComponent,
     CandidateDetailComponent,
     HomeComponent,
-    CompanyProfileComponent
+    CompanyProfileComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

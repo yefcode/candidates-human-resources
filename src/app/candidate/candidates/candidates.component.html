@@ -1,8 +1,6 @@
-<app-candidate-detail [candidate]="selectedCandidate"></app-candidate-detail>
-
-<div class="container">
+<div class="container-candidates">
   <h2>List of Candidates</h2>
-  <p>List of candidates with some candidates details</p>
+  <p>You can click on any row to display detailed information about the selected candidate</p>
   <table class="table table-hover table-condensed">
     <thead>
       <tr>
@@ -14,8 +12,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let candidate of candidates"
-        [class.selected]="candidate === selectedCandidate"
-        (click)="onSelect(candidate)">
+        [class.selected]="candidate === selectedCandidate" (click)="onSelect(candidate)">
         <td>{{candidate.name.first}}</td>
         <td>{{candidate.name.last}}</td>
         <td>{{candidate.phone}}</td>
@@ -24,3 +21,25 @@
     </tbody>
   </table>
 </div>
+
+<app-modal id="modal-id-candidate">
+  <div class="modal-candidate">
+
+    <div class="modal-body-candidate">
+
+      <div class="container" *ngIf="selectedCandidate">
+        <div class="avatar">
+          <img alt="" [src]="selectedCandidate.picture.large">
+        </div>
+        <div class="candidateName">{{selectedCandidate.name.first}} {{selectedCandidate.name.last}}</div>
+        <div>{{selectedCandidate.phone}}</div>
+        <div>{{selectedCandidate.email}}</div>
+        <div>{{selectedCandidate.gender}}</div>
+      </div>
+
+      <button class="btn btn-secondary" (click)="closeModal('modal-id')">Close</button>
+    </div>
+
+  </div>
+  <div class="modal-background-candidate"></div>
+</app-modal>
