@@ -22,24 +22,4 @@
   </table>
 </div>
 
-<app-modal id="modal-id-candidate">
-  <div class="modal-candidate">
-
-    <div class="modal-body-candidate">
-
-      <div class="container" *ngIf="selectedCandidate">
-        <div class="avatar">
-          <img alt="" [src]="selectedCandidate.picture.large">
-        </div>
-        <div class="candidateName">{{selectedCandidate.name.first}} {{selectedCandidate.name.last}}</div>
-        <div>{{selectedCandidate.phone}}</div>
-        <div>{{selectedCandidate.email}}</div>
-        <div>{{selectedCandidate.gender}}</div>
-      </div>
-
-      <button class="btn btn-secondary" (click)="closeModal('modal-id')">Close</button>
-    </div>
-
-  </div>
-  <div class="modal-background-candidate"></div>
-</app-modal>
+<app-candidate-detail [candidate]="selectedCandidate"></app-candidate-detail>

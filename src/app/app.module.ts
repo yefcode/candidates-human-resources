@@ -10,8 +10,8 @@ import { CandidatesComponent } from './candidate/candidates/candidates.component
 import { CandidateDetailComponent } from './candidate/candidate-detail/candidate-detail.component';
 import { HomeComponent } from './home/home.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
-import { ModalComponent } from './common/components/modal/modal.component';
 import { MaterialModule } from './material/material.module';
+import { CommonComponentsModule } from './common/components/common-components.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +19,12 @@ import { MaterialModule } from './material/material.module';
     CandidatesComponent,
     CandidateDetailComponent,
     HomeComponent,
-    CompanyProfileComponent,
-    ModalComponent
+    CompanyProfileComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonComponentsModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,

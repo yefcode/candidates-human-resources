@@ -29,8 +29,4 @@ export class CandidatesComponent implements OnInit {
     this.modalService.open('modal-id-candidate');
   }
 
-  closeModal() {
-    this.modalService.close('modal-id-candidate');
-  }
-
 }
