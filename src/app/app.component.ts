@@ -1,4 +1,4 @@
-// Main Component
+// This is the main component.
 import { Component } from '@angular/core';
 
 @Component({
